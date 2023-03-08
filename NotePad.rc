@@ -1,0 +1,85 @@
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#include		<resource.h>
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#define	ICO_MAIN		1000
+#define	IDA_MAIN		2000
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#define	IDM_MAIN		2000
+#define	IDM_NEW			2101
+#define	IDM_OPEN		2102
+#define	IDM_SAVE		2103
+#define	IDM_SAVEAS	2104
+#define	IDM_EXIT		2105
+#define	IDM_UNDO		2201
+#define	IDM_REDO		2202
+#define	IDM_SELALL		2203
+#define	IDM_COPY		2204
+#define	IDM_CUT			2205
+#define	IDM_PASTE		2206
+#define	IDM_FIND		2207
+#define	IDM_FINDPREV	2208
+#define	IDM_FINDNEXT	2209
+#define	IDM_HELP	3101
+#define IDM_ABOUT 3102
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+IDM_MAIN	menu	discardable
+BEGIN
+	popup	"File(&F)"
+	BEGIN
+	    menuitem	"New File(&N)...\tCtrl+N",	IDM_NEW
+		menuitem	"Open File(&O)...\tCtrl+O",	IDM_OPEN
+		menuitem	"Save File(&S)\tCtrl+S",		IDM_SAVE
+		menuitem	"Save As(&A)...\tCtrl+Alt+S",IDM_SAVEAS
+		menuitem	separator
+		menuitem	"Exit(&X)",		IDM_EXIT
+	END
+	popup	"Edit(&E)"
+	BEGIN
+		menuitem	"Revocation(&Z)\tCtrl+Z",	IDM_UNDO
+		menuitem	"Renew(&Y)\tCtrl+Y",	IDM_REDO
+		menuitem	separator
+		menuitem	"Select all(&A)\tCtrl+A",	IDM_SELALL
+		menuitem	"Copy(&C)\tCtrl+C",	IDM_COPY
+		menuitem	"Cut(&X)\tCtrl+X",	IDM_CUT
+		menuitem	"Paste(&V)\tCtrl+V",	IDM_PASTE
+		menuitem	separator
+		menuitem	"Find(&F)...\tCtrl+F", IDM_FIND
+		menuitem	"Find prev(&P)\tF2", IDM_FINDPREV
+		menuitem	"Find next(&N)\tF3", IDM_FINDNEXT
+	END
+	popup	"Help(&H)"
+	BEGIN
+		menuitem	"About(&A)",	IDM_ABOUT
+	END
+END
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+IDA_MAIN	accelerators
+BEGIN
+		VK_F2,	IDM_FINDPREV,VIRTKEY
+		VK_F3,	IDM_FINDNEXT,VIRTKEY
+		"N",	IDM_NEW,VIRTKEY,CONTROL
+		"O",	IDM_OPEN,VIRTKEY,CONTROL
+		"S",	IDM_SAVE,VIRTKEY,CONTROL
+		"S",	IDM_SAVEAS,VIRTKEY,CONTROL,ALT
+		"Z",	IDM_UNDO,VIRTKEY,CONTROL
+		"Y",	IDM_REDO,VIRTKEY,CONTROL
+		"A",	IDM_SELALL,VIRTKEY,CONTROL
+		"C",	IDM_COPY,VIRTKEY,CONTROL
+		"X",	IDM_CUT,VIRTKEY,CONTROL
+		"V",	IDM_PASTE,VIRTKEY,CONTROL
+		"F",	IDM_FIND,VIRTKEY,CONTROL
+END
+IDM_ABOUT DIALOG DISCARDABLE  32, 32, 180, 102
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "About This procedure"
+FONT 11, "??"
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDOK,66,81,50,14
+    ICON            ICO_MAIN,-1,7,7,21,20
+    CTEXT           "This is a NotePad Procedure",-1,40,12,100,8
+    CTEXT           "      Thanks for using ^_^",-1,7,40,166,8
+    CTEXT           "This procedure is in the testing phase",-1,7,52,166,8
+END
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
