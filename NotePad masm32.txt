@@ -1,0 +1,3 @@
+ml /c /coff NotePad.asm
+rc NotePad.rc
+Link /subsystem:windows NotePad.obj NotePad.res
